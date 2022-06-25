@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Facebook;
-
+using System.Text.RegularExpressions;
 
 namespace PlataformaCitas.Controllers
 {
@@ -39,6 +39,24 @@ namespace PlataformaCitas.Controllers
                     claim.Value
                 });
 
+            var Correo = "";
+            var Nombre = "";
+
+            foreach(var DireccionElectronica in claims)
+            {
+                if (Regex.IsMatch(DireccionElectronica.Type, "emailaddress"))
+                {
+                    Correo = DireccionElectronica.Value;
+                }
+                if (Regex.IsMatch(DireccionElectronica.Type, "name"))
+                {
+                    Nombre = DireccionElectronica.Value;
+                }
+            }  
+            if(Correo != "")
+            {
+
+            }
             return RedirectToAction("Index", "Home");
             /*return Json(claims);*/
         }

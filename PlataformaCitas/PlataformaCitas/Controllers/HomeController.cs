@@ -36,8 +36,19 @@ namespace PlataformaCitas.Controllers
         public IActionResult Citas(int Id = 0)
         {
             var resp = JsonConvert.DeserializeObject<lDoctores>(HttpContext.Session.GetString("Doctores"));
+            var Doctor = resp.Doctores.Where(x => x.IdRollElemento == Id).FirstOrDefault();
+            //var doctor = resp.Where(x => x);
+            //var calendario = new Calendario();
+            //var fecha = DateTime.Now.Year;
+            //var res = calendario.calendario(fecha);
+            return View(Doctor);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult BuscarDisponibilidad(string fecha, int Id)
+        {
+            
+            return Content("");
         }
 
         public IActionResult TestApi()

@@ -55,6 +55,9 @@ D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\Platafo
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\PlataformaCitas.Views.dll
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\PlataformaCitas.Views.pdb
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\Facebook.dll
+D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\ITHit.Server.dll
+D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\ITHit.WebDAV.Server.dll
+D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\ITHit.WebDAV.Server.Web.dll
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\PlataformaCitas.csproj.AssemblyReference.cache
@@ -90,6 +93,3 @@ D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\refint\
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\PlataformaCitas.pdb
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\PlataformaCitas.genruntimeconfig.cache
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\ref\PlataformaCitas.dll
-D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\ITHit.Server.dll
-D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\ITHit.WebDAV.Server.dll
-D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\bin\Debug\net5.0\ITHit.WebDAV.Server.Web.dll

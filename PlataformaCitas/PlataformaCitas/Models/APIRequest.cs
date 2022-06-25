@@ -33,6 +33,14 @@ namespace PlataformaCitas.Models
             return resp;
         }
 
+        public LoginCliente saveLogin()
+        {
+            var resp = new LoginCliente();
+            var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Doctores");
+            return resp;
+        }
+
+
         public void TestRequest()
         {
             try
