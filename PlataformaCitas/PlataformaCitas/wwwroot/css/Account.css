@@ -1,0 +1,86 @@
+﻿.bLogin {
+    margin-top: 40px;
+}
+
+.titleLogin {
+    margin-bottom: 50px;
+}
+
+.ContLogon {
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at center, #5972a4 20%, #3d568b, #3b5489 100%);
+}
+
+.bg-nav-login {
+    background: #ffffff;
+}
+
+.loginIndexOut {
+    background-color: #6c87be;
+    padding-top: 1px;
+    width: 350px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-width: 2px;
+    border-color: rgb(243 244 246);
+}
+
+.loginIndexIn {
+    background-image: linear-gradient(#3f5fa2, #3b5998);
+    /*background-color: #00ff4b;*/
+    padding: 5px;
+    width: 350px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-width: 2px;
+    border-color: rgb(243 244 246);
+}
+
+.loginTitle {
+    font-weight: bold;
+    padding-top: 20px;
+    color: #ffffff;
+    font-size: 38px;
+    text-align: center
+}
+
+.contBtn {
+    padding-top: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+.btnLogin {
+    font-size: 24px;
+    width: 300px;
+    height: 50px;
+    border: 0.5px solid #4c5e87 !important;
+    border-radius: 4px;
+    background: #5f77aa;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+}
+
+.iconLeft {
+    margin-top: 5px;
+    width: 20%;
+    float: left;
+}
+
+.textRight {
+    margin-top: 7px;
+    width: 75%;
+    margin-left: 10px;
+}
+
+.btnLogin:hover {
+    background: #6b82b2;
+}

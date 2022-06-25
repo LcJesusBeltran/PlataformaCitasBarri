@@ -1,0 +1,33 @@
+﻿.LogHeader {
+    background-image: radial-gradient(circle at center, #5972a4 20%, #3d568b, #3b5489 100%);
+    height:4rem;
+}
+
+.LogHeader span{
+    color:white;
+}
+
+.mainBody {
+    background: #f4f4f5;
+}
+
+.mh-helper{
+    max-height:36rem;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.btn-aux-plataforma-green {
+    background-color: #14ae6e;
+    color: #ffffff !important;
+}
+
+.btn-aux-plataforma-green:hover {
+    background-color: #31db94;
+}
+
+    .btn-aux-plataforma-green:active {
+        background-color: #14ae6e
+    }
