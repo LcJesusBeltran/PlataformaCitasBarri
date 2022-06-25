@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model lDoctores
+
+<div class="text-center bg-white mh-100 box-shadow mt-5">
+    <h3 class="display-5 mb-3 pt-3">Selecciona el Medico de su preferencia</h3>
+
+    @if(Model.bError == false)
+    {   <div class="overflow-auto over mh-helper">
+        @foreach(var Doctor in Model.Doctores)
+        {
+            <div class="attribute-group border mx-auto mb-1 w-50 h-50 mb-2">
+                <img alt="@Doctor.Nombre" src="~/css/@Doctor.img" />
+                <p>@Doctor.Nombre  @Doctor.Paterno  @Doctor.Materno</p>
+                <p>Medigo General</p>
+                <a class="btn btn-aux-plataforma-green" href="Home/Citas?Id=@Doctor.IdRollElemento">Solicitar Cita</a>
+            </div>
+        }
+        </div>
+    }
+
+    <!--@using (Html.BeginForm("TestApi", "Home"))
+    {
+       <button type="submit" class="btn btn-primary">
+           <p class="textRight">
+               Test
+           </p>
+       </button>
+    }  
+       <button type="button" class="btn btn-primary" onclick="testApi()">
+           <p class="textRight">
+               Test2
+           </p>
+       </button>
+       <button type="button" class="btn btn-primary" onclick="exampleRequestJQuery()">
+           <p class="textRight">
+               Test3
+           </p>
+       </button>-->
+</div>
