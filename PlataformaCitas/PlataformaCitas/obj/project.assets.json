@@ -124,11 +124,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
+      "projectUniqueName": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
       "projectName": "PlataformaCitas",
-      "projectPath": "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
+      "projectPath": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
       "packagesPath": "C:\\Users\\fox_2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\obj\\",
+      "outputPath": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

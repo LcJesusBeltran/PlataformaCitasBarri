@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yAfgTGbXVc+HpgHVA1rkqHKZ6IirI2IrKKLXdzChl3FYC+b736gfyqt2gwp+mWSJ5dO2Xq3KhjTXBpGZQD/Qbg==",
+  "dgSpecHash": "+oj8Q8Bsgt4JxjxsL/XbLxTnLISsmhRK2y/izffAiYAj2EBxT7p58Fig89nHG8H98My1epNr1Vyv+Bz4uJtnew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
+  "projectFilePath": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fox_2\\.nuget\\packages\\facebook\\7.0.6\\facebook.7.0.6.nupkg.sha512",
     "C:\\Users\\fox_2\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\5.0.17\\microsoft.aspnetcore.authentication.facebook.5.0.17.nupkg.sha512",
