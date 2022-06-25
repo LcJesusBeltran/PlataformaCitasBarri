@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj": {}
+    "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj": {
+    "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
+        "projectUniqueName": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
         "projectName": "PlataformaCitas",
-        "projectPath": "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
+        "projectPath": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
         "packagesPath": "C:\\Users\\fox_2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fox_2\\source\\repos\\PlataformaCitas\\PlataformaCitas\\obj\\",
+        "outputPath": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -48,9 +48,17 @@
               "target": "Package",
               "version": "[7.0.6, )"
             },
+            "ITHit.WebDAV.Server.Web": {
+              "target": "Package",
+              "version": "[12.1.11742, )"
+            },
             "Microsoft.AspNetCore.Authentication.Facebook": {
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

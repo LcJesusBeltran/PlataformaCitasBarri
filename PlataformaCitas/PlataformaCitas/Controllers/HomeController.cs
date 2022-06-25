@@ -7,6 +7,9 @@ using System.Diagnostics;
 using PlataformaCitas.Models;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Session;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace PlataformaCitas.Controllers
 {
@@ -26,11 +29,14 @@ namespace PlataformaCitas.Controllers
             lDoctores Doctores = new lDoctores();
             var repo = new APIRequest();
             Doctores = repo.GetDoctores();
+            HttpContext.Session.SetString("Doctores", JsonConvert.SerializeObject(Doctores));
             return View(Doctores);
         }
 
         public IActionResult Citas(int Id = 0)
         {
+            var resp = JsonConvert.DeserializeObject<lDoctores>(HttpContext.Session.GetString("Doctores"));
+
             return View();
         }
 

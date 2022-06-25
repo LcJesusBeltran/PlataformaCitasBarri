@@ -12,12 +12,13 @@ namespace PlataformaCitas.Models
 {
     public class APIRequest
     {
+        private readonly string uriApi = "https://localhost:44321/api";
         public lDoctores GetDoctores()
         {
             var resp = new lDoctores();
             try
             {
-                var request = (HttpWebRequest)WebRequest.Create("https://localhost:44321/api/Doctores");
+                var request = (HttpWebRequest)WebRequest.Create(uriApi+"/Doctores");
                 request.Method = "GET";
                 request.ContentType = "application/json";
                 var response = (HttpWebResponse)request.GetResponse();

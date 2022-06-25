@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Session;
 
 namespace PlataformaCitas
 {
@@ -28,6 +29,11 @@ namespace PlataformaCitas
 
             services.AddHealthChecks();
             services.AddMvc();
+            services.AddDistributedMemoryCache();
+            services.AddSession( options =>
+            {
+                options.IOTimeout = System.TimeSpan.FromHours(1);
+            });
 
             services.AddAuthentication(options =>
             {
@@ -73,6 +79,7 @@ namespace PlataformaCitas
             //        name: "default",
             //        pattern: "{controller=Auth}/{action=Logon}/{id?}");
             //});
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
