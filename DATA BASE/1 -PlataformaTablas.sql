@@ -27,9 +27,7 @@ BEGIN TRANSACTION
 		CREATE TABLE dbo.Persona
 		(
 			IdParte               UNIQUEIDENTIFIER NOT NULL,
-			Nombre                NVARCHAR(150) NOT NULL,
-			Paterno               NVARCHAR(150) NULL,
-			Materno               NVARCHAR(150) NULL,
+			Nombre                NVARCHAR(255) NOT NULL,
 			DireccionElectronica  NVARCHAR(150) NOT NULL,
 			img                   NVARCHAR(255) NULL 
 			PRIMARY KEY CLUSTERED (IdParte)

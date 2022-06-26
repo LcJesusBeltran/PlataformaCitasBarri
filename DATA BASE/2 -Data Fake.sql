@@ -14,23 +14,23 @@ BEGIN TRANSACTION
 		SET @IdParte = NEWID()
 		INSERT INTO dbo.Parte(IdParte)VALUES(@IdParte)
 		INSERT INTO dbo.Persona
-		(IdParte,Nombre,Paterno,Materno,DireccionElectronica)
+		(IdParte,Nombre,DireccionElectronica)
 		VALUES
-		(@IdParte,'Raul','Degollado','Gallardo','rdegollado@datafake.com')
+		(@IdParte,'Raul Degollado Gallardo','rdegollado@datafake.com')
 
 		SET @IdParte = NEWID()
 		INSERT INTO dbo.Parte(IdParte)VALUES(@IdParte)
 		INSERT INTO dbo.Persona
-		(IdParte,Nombre,Paterno,Materno,DireccionElectronica)
+		(IdParte,Nombre,DireccionElectronica)
 		VALUES
-		(@IdParte,'Julio','Osuna','Osuna','josuna@datafake.com')
+		(@IdParte,'Julio Osuna Osuna','josuna@datafake.com')
 
 		SET @IdParte = NEWID()
 		INSERT INTO dbo.Parte(IdParte)VALUES(@IdParte)
 		INSERT INTO dbo.Persona
-		(IdParte,Nombre,Paterno,Materno,DireccionElectronica)
+		(IdParte,Nombre,DireccionElectronica)
 		VALUES
-		(@IdParte,'Karen','Ruelas','Corona','kruelas@datafake.com')
+		(@IdParte,'Karen Ruelas Corona','kruelas@datafake.com')
 		/**********************************************************************/
 		--TIPO ROLL ELEMENTO
 		/**********************************************************************/

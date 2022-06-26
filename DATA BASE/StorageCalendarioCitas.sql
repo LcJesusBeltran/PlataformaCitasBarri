@@ -2,9 +2,9 @@
 
 --EXEC dbo.InsertLogin fox_290888@hotmail.com,Alexx Beltran Lga
 
+--drop procedure dbo.CalendarioCitas
 
-
-ALTER PROC dbo.CalendarioCitas
+CREATE PROC dbo.CalendarioCitas
 
 	@MEDICO AS INT = NULL,
 	@FECHA  AS DATE = NULL
@@ -20,7 +20,7 @@ ALTER PROC dbo.CalendarioCitas
 		(
 			SELECT 
 			  TEMP.*,
-			  p.Nombre + ' ' + IIF(p.Paterno IS NULL,'',p.Paterno) + ' ' + IIF(p.Materno IS NULL,'',p.Materno) AS 'NombreCompleto' ,
+			  p.Nombre AS 'NombreCompleto' ,
 			  p.DireccionElectronica
 			  FROM CalendarioCita TEMP
 		INNER JOIN RollElemento RE ON RE.IdRollElemento = TEMP.IdRollCliente

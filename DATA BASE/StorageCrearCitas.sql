@@ -2,9 +2,9 @@
 
 --EXEC dbo.InsertLogin fox_290888@hotmail.com,Alexx Beltran Lga
 
+--DROP PROCEDURE dbo.CrearCitas
 
-
-ALTER PROC dbo.CrearCitas
+CREATE PROC dbo.CrearCitas
 
 	@MEDICO  AS INT  = NULL,
 	@FECHA   AS DATE = NULL,

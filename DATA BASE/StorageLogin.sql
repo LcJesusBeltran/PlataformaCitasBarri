@@ -1,5 +1,6 @@
+--DROP PROCEDURE dbo.InsertLogin
 
-ALTER PROC dbo.InsertLogin
+CREATE PROC dbo.InsertLogin
 
 	@CORREO AS NVARCHAR(150) = NULL,
 	@NOMBRE AS NVARCHAR(150) = NULL
