@@ -4,7 +4,11 @@
 <header>
     <nav class="navbar LogHeader">
         <div class="container">
-            <span>Barra superior</span>
+            <span>Plataforma de Citas</span>
+            @if(ViewBag.Nombre != null)
+            {
+                <span>@ViewBag.Nombre</span>    
+            }
         </div>        
     </nav>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-5">

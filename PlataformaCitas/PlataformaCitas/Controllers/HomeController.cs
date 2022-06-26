@@ -27,6 +27,7 @@ namespace PlataformaCitas.Controllers
         /*[AllowAnonymous]*/
         public IActionResult Index()
         {
+            ViewBag.Nombre = HttpContext.Session.GetString("LoginName");
             lDoctores Doctores = new lDoctores();
             var repo = new APIRequest();
             Doctores = repo.GetDoctores();
@@ -36,6 +37,7 @@ namespace PlataformaCitas.Controllers
 
         public IActionResult Citas(int Id = 0)
         {
+            ViewBag.Nombre = HttpContext.Session.GetString("LoginName");
             var resp = JsonConvert.DeserializeObject<lDoctores>(HttpContext.Session.GetString("Doctores"));
             var Doctor = resp.Doctores.Where(x => x.IdRollElemento == Id).FirstOrDefault();
             return View(Doctor);

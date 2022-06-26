@@ -12,11 +12,13 @@ namespace PlataformaCitas.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Nombre = HttpContext.Session.GetString("LoginName");
             var resp = JsonConvert.DeserializeObject<lDoctores>(HttpContext.Session.GetString("Doctores"));
             return View(resp);
         }
         public IActionResult Agendas(int Id = 0)
         {
+            ViewBag.Nombre = HttpContext.Session.GetString("LoginName");
             var resp = JsonConvert.DeserializeObject<lDoctores>(HttpContext.Session.GetString("Doctores"));
             var Doctor = resp.Doctores.Where(x => x.IdRollElemento == Id).FirstOrDefault();
             return View(Doctor);
