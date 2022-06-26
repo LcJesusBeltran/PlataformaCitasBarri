@@ -8,12 +8,12 @@ using CitasAPI.Models;
 
 namespace CitasAPI.Controllers
 {
-    public class CalendarioController : ApiController
+    public class CitasController : ApiController
     {
         public object Post([FromBody] string[] Busqueda)
         {
             var repo = new RepositoryCitas();
-            repo.GetCalendarioDisponible(Busqueda[0], Busqueda[1]);
+            repo.CrearCita(Busqueda[0], Busqueda[1], Busqueda[2], Busqueda[3]);
             return repo;
         }
     }

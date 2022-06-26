@@ -80,6 +80,32 @@ namespace PlataformaCitas.Models
             return resp;
         }
 
+        public lCalendario CrearCita(string Fecha, int Id,int IdHoraCita, int IdCliente)
+        {
+            var Lista = new List<string>();
+            Lista.Add(Fecha);
+            Lista.Add(Id.ToString());
+            Lista.Add(IdHoraCita.ToString());
+            Lista.Add(IdCliente.ToString());
+
+            var json = JsonConvert.SerializeObject(Lista);
+            var data = Encoding.UTF8.GetBytes(json);
+            var resp = new lCalendario();
+
+            var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Citas");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.ContentLength = data.Length;
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            resp = JsonConvert.DeserializeObject<lCalendario>(responseString);
+            return resp;
+        }
+
         public void TestRequest()
         {
             try

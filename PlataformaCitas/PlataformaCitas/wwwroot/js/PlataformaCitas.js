@@ -1,6 +1,6 @@
 ﻿function BuscarFecha(Id) {
     var value = $("#iBusqueda").val();
-    if (value == "") {
+    if (value == "") {        
         alert("Seleccione una Fecha");
         return
     }
@@ -9,6 +9,7 @@
     const ValidaFecha = formatDate(hoy);
 
     if (value < ValidaFecha) {
+        $("#lCitas").empty();
         alert("Favor de seleccionar una fecha mayor al dia de hoy")
         return
     }
@@ -21,12 +22,74 @@
             fecha: value.toString(),
             Id: Id
         }, success: function (data) {
+            LlenarCitas(Id,data.ListaCalendario);
             console.log(data);
         }, error: function (xhr, status, error) {
             console.log(error)
         }
     })
 
+}
+
+function ArmaFuncionCita(Id, IdHoraCita) {
+    //Descripcion
+    $("#EnviaCita").empty();
+    var Botones = document.getElementById("EnviaCita");
+    var DivCont = "";    
+    DivCont = "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancelar</button>";
+    DivCont += "<button type='button' class='btn btn-primary' OnClick='EnviarCita(" + Id + "," + IdHoraCita + ")'>Aceptar</button>";
+    Botones.innerHTML = DivCont;
+}
+
+function EnviarCita(Id, IdHoraCita) {
+    var fecha = $("#iBusqueda").val();
+    $.ajax({
+        url: "https://localhost:44364/Home/CrearCita",
+        dataType: 'JSON',
+        type: 'POST',
+        data: {
+            fecha: fecha,
+            Id: Id,
+            IdHoraCita: IdHoraCita
+        }, success: function (data) {
+
+            LlenarCitas(Id, data.ListaCalendario);
+
+            $("#EnviaCita").empty();
+            var Botones = document.getElementById("EnviaCita");                        
+            var DivCont = "";
+            DivCont = "<label>Cita confirmada</label>"
+            DivCont += "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Cerrar</button>";            
+            Botones.innerHTML = DivCont;            
+            
+
+            console.log(data);
+        }, error: function (xhr, status, error) {
+            console.log(error)
+        }
+    })    
+}
+
+function LlenarCitas(Id, data) {
+    
+    console.log(data);
+    $("#lCitas").empty();
+    var ContCitas = document.getElementById("lCitas");
+    var DivCont = "";
+    for (var i = 0; i < data.length; i++) {        
+        DivCont = "";
+        if (data[i].IdCalendario === null) {
+            DivCont = "<div class='border mt-1 d-flex flex-row btn cta-aux p-2' data-toggle='modal' data-target='#exampleModal' OnClick='ArmaFuncionCita(" + Id + "," + data[i].IdHoraCita + ")'>";
+        }
+        else {
+            DivCont = "<div class='border mt-1 d-flex flex-row btn bg-info text-white p-2'>";
+        }
+        DivCont += "<div class='w-50'>" + data[i].Descripcion + "</div>";
+        DivCont += "<div class='w-50'>" + data[i].Estatus + "</div>";
+        DivCont += "</div>";
+        
+        ContCitas.innerHTML += DivCont;
+    }
 }
 
 function formatDate(date) {
@@ -41,4 +104,8 @@ function formatDate(date) {
         day = '0' + day;
 
     return [year, month, day].join('-');
+}
+
+function LimpiarCita() {
+    $("#lCitas").empty();
 }

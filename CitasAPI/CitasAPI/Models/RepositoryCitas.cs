@@ -34,5 +34,28 @@ namespace CitasAPI.Models
                 Descripcion = "Lista de citas no disponible";
             }
         }
+
+        public void CrearCita(string Fecha, string Id, string IdHorarioCita,string IdCliente)
+        {
+            ListaCalendario.Clear();
+            var sQuery = "EXEC dbo.CrearCitas " + Id + ",'" + Fecha + "'," + IdHorarioCita + "," + IdCliente;
+            try
+            {
+                using (var conn = new SqlConnection(conString))
+                {
+                    using (var reader = conn.QueryMultiple(sQuery))
+                    {
+                        ListaCalendario = reader.Read<CalendarioCitas>().ToList();
+                    }
+                }
+                bError = false;
+                Descripcion = "";
+            }
+            catch (Exception)
+            {
+                bError = true;
+                Descripcion = "No pudimos agendar tu cita, intentalo de nuevo";
+            }
+        }
     }
 }

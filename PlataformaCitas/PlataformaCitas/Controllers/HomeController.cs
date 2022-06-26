@@ -50,6 +50,16 @@ namespace PlataformaCitas.Controllers
             return Content(JToken.Parse(JsonConvert.SerializeObject(ListaCalendario,Newtonsoft.Json.Formatting.None)).ToString());
         }
 
+        [HttpPost]
+        public ActionResult CrearCita(string fecha, int Id, int IdHoraCita)
+        {
+            int IdCliente = int.Parse(HttpContext.Session.GetString("LoginSession"));
+            lCalendario ListaCalendario = new lCalendario();
+            var repo = new APIRequest();
+            ListaCalendario = repo.CrearCita(fecha, Id, IdHoraCita, IdCliente);
+            return Content(JToken.Parse(JsonConvert.SerializeObject(ListaCalendario, Newtonsoft.Json.Formatting.None)).ToString());
+        }
+
         public IActionResult TestApi()
         {
             APIRequest request = new APIRequest();
