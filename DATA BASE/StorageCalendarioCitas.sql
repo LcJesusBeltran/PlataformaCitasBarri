@@ -4,7 +4,7 @@
 
 
 
-CREATE PROC dbo.CalendarioCitas
+ALTER PROC dbo.CalendarioCitas
 
 	@MEDICO AS INT = NULL,
 	@FECHA  AS DATE = NULL
@@ -20,7 +20,7 @@ CREATE PROC dbo.CalendarioCitas
 		(
 			SELECT 
 			  TEMP.*,
-			  p.Nombre + ' ' + p.Paterno + ' ' + p.Materno AS 'NombreCompleto' ,
+			  p.Nombre + ' ' + IIF(p.Paterno IS NULL,'',p.Paterno) + ' ' + IIF(p.Materno IS NULL,'',p.Materno) AS 'NombreCompleto' ,
 			  p.DireccionElectronica
 			  FROM CalendarioCita TEMP
 		INNER JOIN RollElemento RE ON RE.IdRollElemento = TEMP.IdRollCliente
