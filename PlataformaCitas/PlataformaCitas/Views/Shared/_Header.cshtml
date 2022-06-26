@@ -6,8 +6,13 @@
         <div class="container">
             <span>Plataforma de Citas</span>
             @if(ViewBag.Nombre != null)
-            {
-                <span>@ViewBag.Nombre</span>    
+            {   <div class="d-flex flex-row">
+                    <span class="m-1 mt-1">@ViewBag.Nombre</span>  
+                    @using (Html.BeginForm("FacebookLogout", "Account"))
+                    {
+                        <button class="ml-1 btn btn-outline-info" type="submit">Salir</button>
+                    }
+                </div>
             }
         </div>        
     </nav>

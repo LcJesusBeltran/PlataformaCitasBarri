@@ -23,7 +23,7 @@
             Id: Id
         }, success: function (data) {
             LlenarCitas(Id,data.ListaCalendario);
-            console.log(data);
+            /*console.log(data);*/
         }, error: function (xhr, status, error) {
             console.log(error)
         }
@@ -65,7 +65,7 @@ function EnviarCita(Id, IdHoraCita) {
             Botones.innerHTML = DivCont;            
             
 
-            console.log(data);
+            /*console.log(data);*/
         }, error: function (xhr, status, error) {
             console.log(error)
         }
@@ -74,7 +74,7 @@ function EnviarCita(Id, IdHoraCita) {
 
 function LlenarCitas(Id, data) {
     
-    console.log(data);
+    /*console.log(data);*/
     $("#lCitas").empty();
     var ContCitas = document.getElementById("lCitas");
     var DivCont = "";
@@ -130,7 +130,7 @@ function BuscarAgenda(Id) {
             Id: Id
         }, success: function (data) {
             LlenarAgenda(data.ListaCalendario);
-            console.log(data);
+            /*console.log(data);*/
         }, error: function (xhr, status, error) {
             console.log(error)
         }
@@ -140,7 +140,7 @@ function BuscarAgenda(Id) {
 
 function LlenarAgenda(data) {
 
-    console.log(data);
+    //console.log(data);
     $("#lCitas").empty();
     var ContCitas = document.getElementById("lCitas");
     var DivCont = "";

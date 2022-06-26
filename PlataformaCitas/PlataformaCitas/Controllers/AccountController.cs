@@ -11,6 +11,8 @@ using Facebook;
 using System.Text.RegularExpressions;
 using PlataformaCitas.Models;
 using Microsoft.AspNetCore.Http;
+using System;
+using System.Net;
 
 namespace PlataformaCitas.Controllers
 {
@@ -28,9 +30,10 @@ namespace PlataformaCitas.Controllers
         public async Task<IActionResult> FacebookResponse()
         {
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            var fb = new FacebookClient();
-            var token = result.Properties.GetTokenValue("access_token");
+            var fb = new FacebookClient();            
+            var token = result.Properties.GetTokenValue("access_token");            
             fb.AccessToken = token;
+            HttpContext.Session.SetString("LoginToken",token);
             dynamic data = fb.Get("me?fields=link,picture");
             var claims = result.Principal.Identities
                 .FirstOrDefault().Claims.Select(claim => new
@@ -55,7 +58,36 @@ namespace PlataformaCitas.Controllers
                 }
             }
             return RedirectToAction("Index", "Home");
-            /*return Json(claims);*/
+        }
+
+        public IActionResult FacebookLogout()
+        {
+            try
+            {
+                var token = HttpContext.Session.GetString("LoginToken");
+                var fb = new FacebookClient();
+                Uri logoutUrl = fb.GetLogoutUrl(new
+                {
+                    access_token = token,
+                    next = "https://www.facebook.com/connect/login_success.html"
+                });
+
+                System.Net.WebClient client = new WebClient();
+                client.DownloadString(logoutUrl);            
+
+                return RedirectToAction("Logon", "Auth");
+
+            }
+            catch(Exception)
+            {
+                return RedirectToAction("Index", "Home");
+            }            
         }
     }
 }
+
+
+//WebClient client = new WebClient();
+//client.DownloadString(logoutUrl);
+
+//_accessToken = null;
