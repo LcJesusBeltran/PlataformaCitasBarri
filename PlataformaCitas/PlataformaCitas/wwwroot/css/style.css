@@ -31,3 +31,24 @@
     .btn-aux-plataforma-green:active {
         background-color: #14ae6e
     }
+
+#iBusqueda {
+    width: 200px;    
+}
+
+.cta-aux {
+    cursor: pointer;
+    /*background-image: radial-gradient(circle at center, #6785c0 20%, #6785c0, #748cbc 100%);*/
+    background: #6785c0;
+    color: #ffffff !important;
+}
+
+    .cta-aux:hover {
+        background: #3b5489;
+    }
+
+.cta-aux2 {
+    /*background-image: radial-gradient(circle at center, #6785c0 20%, #6785c0, #748cbc 100%);*/
+    background: #6785c0;
+    color: #ffffff !important;
+}

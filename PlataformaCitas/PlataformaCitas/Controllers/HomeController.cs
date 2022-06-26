@@ -7,6 +7,10 @@ using System.Diagnostics;
 using PlataformaCitas.Models;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Session;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace PlataformaCitas.Controllers
 {
@@ -23,15 +27,39 @@ namespace PlataformaCitas.Controllers
         /*[AllowAnonymous]*/
         public IActionResult Index()
         {
+            ViewBag.Nombre = HttpContext.Session.GetString("LoginName");
             lDoctores Doctores = new lDoctores();
             var repo = new APIRequest();
             Doctores = repo.GetDoctores();
+            HttpContext.Session.SetString("Doctores", JsonConvert.SerializeObject(Doctores));
             return View(Doctores);
         }
 
         public IActionResult Citas(int Id = 0)
         {
-            return View();
+            ViewBag.Nombre = HttpContext.Session.GetString("LoginName");
+            var resp = JsonConvert.DeserializeObject<lDoctores>(HttpContext.Session.GetString("Doctores"));
+            var Doctor = resp.Doctores.Where(x => x.IdRollElemento == Id).FirstOrDefault();
+            return View(Doctor);
+        }
+
+        [HttpPost]
+        public ActionResult BuscarDisponibilidad(string fecha, int Id)
+        {
+            lCalendario ListaCalendario = new lCalendario();
+            var repo = new APIRequest();
+            ListaCalendario = repo.CalendarioCitas(fecha, Id);
+            return Content(JToken.Parse(JsonConvert.SerializeObject(ListaCalendario,Newtonsoft.Json.Formatting.None)).ToString());
+        }
+
+        [HttpPost]
+        public ActionResult CrearCita(string fecha, int Id, int IdHoraCita)
+        {
+            int IdCliente = int.Parse(HttpContext.Session.GetString("LoginSession"));
+            lCalendario ListaCalendario = new lCalendario();
+            var repo = new APIRequest();
+            ListaCalendario = repo.CrearCita(fecha, Id, IdHoraCita, IdCliente);
+            return Content(JToken.Parse(JsonConvert.SerializeObject(ListaCalendario, Newtonsoft.Json.Formatting.None)).ToString());
         }
 
         public IActionResult TestApi()

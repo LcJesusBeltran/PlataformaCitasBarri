@@ -36,7 +36,8 @@ namespace CitasAPI.Models
             }
             catch (Exception)
             {
-
+                bError = true;
+                Descripcion = "Lista de doctores no disponible";
             }
 
         }

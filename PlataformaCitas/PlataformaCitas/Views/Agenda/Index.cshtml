@@ -1,10 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Agenda";
 }
-<h1>@ViewData["Title"]</h1>
 
-<div class="bg-white">
-    <p>Agenda de Doctores</p>
+@model lDoctores
+
+<div class="text-center bg-white mh-100 box-shadow mt-5">
+    <h3 class="display-5 mb-3 pt-3">Agenda Medicos</h3>
+
+    @if(Model.bError == false)
+    {   <div class="overflow-auto over mh-helper ">
+        @foreach(var Doctor in Model.Doctores)
+        {
+            <div class="attribute-group border mx-auto mb-1 w-50 h-50 mb-2 p-2 d-flex flex-row">
+                <img alt="@Doctor.Nombre" src="~/css/@Doctor.img" />
+                <div class="p-2 mx-auto">
+                    <label>@Doctor.Nombre  @Doctor.Paterno  @Doctor.Materno</label>
+                    <br/>
+                    <label>Medigo General</label>
+                    <br/>
+                    <a class="btn btn-aux-plataforma-green mb-3" href="Agendas?Id=@Doctor.IdRollElemento">Agenda</a>
+                </div>
+            </div>
+        }
+        </div>
+    }
 </div>
 
 
