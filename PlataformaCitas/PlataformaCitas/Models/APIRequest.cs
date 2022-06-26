@@ -33,10 +33,26 @@ namespace PlataformaCitas.Models
             return resp;
         }
 
-        public LoginCliente saveLogin()
+        public int saveLogin(string Correo, string Nombre)
         {
-            var resp = new LoginCliente();
-            var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Doctores");
+            var Lista = new List<string>();
+            Lista.Add(Correo);
+            Lista.Add(Nombre);
+            var json = JsonConvert.SerializeObject(Lista);
+            var data = Encoding.UTF8.GetBytes(json);
+            var resp = 0;
+
+            var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Login");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.ContentLength = data.Length;
+            using(var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            resp = int.Parse(responseString); 
             return resp;
         }
 

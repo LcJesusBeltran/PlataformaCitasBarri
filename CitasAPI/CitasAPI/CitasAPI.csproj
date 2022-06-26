@@ -227,6 +227,7 @@
     <Compile Include="Models\LoginCliente.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\RepositoryDoctores.cs" />
+    <Compile Include="Models\RepositoryLoggin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -47,7 +47,7 @@ namespace PlataformaCitas.Controllers
         [HttpPost]
         public ActionResult BuscarDisponibilidad(string fecha, int Id)
         {
-            
+            var IdUsuario = int.Parse(HttpContext.Session.GetString("LoginSession"));
             return Content("");
         }
 

@@ -9,6 +9,8 @@ using System.Linq;
 using Newtonsoft.Json;
 using Facebook;
 using System.Text.RegularExpressions;
+using PlataformaCitas.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace PlataformaCitas.Controllers
 {
@@ -38,24 +40,18 @@ namespace PlataformaCitas.Controllers
                     claim.Type,
                     claim.Value
                 });
-
-            var Correo = "";
-            var Nombre = "";
-
-            foreach(var DireccionElectronica in claims)
-            {
-                if (Regex.IsMatch(DireccionElectronica.Type, "emailaddress"))
-                {
-                    Correo = DireccionElectronica.Value;
-                }
-                if (Regex.IsMatch(DireccionElectronica.Type, "name"))
-                {
-                    Nombre = DireccionElectronica.Value;
-                }
-            }  
+            var res = claims.ToArray();
+            var Correo = res[1].Value;
+            var Nombre = res[2].Value;
+ 
             if(Correo != "")
             {
-
+                var repo = new APIRequest();
+                var resp = repo.saveLogin(Correo, Nombre);
+                if (resp != 0)
+                {
+                    HttpContext.Session.SetString("LoginSession", resp.ToString());
+                }
             }
             return RedirectToAction("Index", "Home");
             /*return Json(claims);*/
