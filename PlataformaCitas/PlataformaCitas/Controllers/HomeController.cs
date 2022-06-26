@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Session;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Microsoft.AspNetCore.Http;
 
 namespace PlataformaCitas.Controllers
@@ -37,18 +38,16 @@ namespace PlataformaCitas.Controllers
         {
             var resp = JsonConvert.DeserializeObject<lDoctores>(HttpContext.Session.GetString("Doctores"));
             var Doctor = resp.Doctores.Where(x => x.IdRollElemento == Id).FirstOrDefault();
-            //var doctor = resp.Where(x => x);
-            //var calendario = new Calendario();
-            //var fecha = DateTime.Now.Year;
-            //var res = calendario.calendario(fecha);
             return View(Doctor);
         }
 
         [HttpPost]
         public ActionResult BuscarDisponibilidad(string fecha, int Id)
         {
-            var IdUsuario = int.Parse(HttpContext.Session.GetString("LoginSession"));
-            return Content("");
+            lCalendario ListaCalendario = new lCalendario();
+            var repo = new APIRequest();
+            ListaCalendario = repo.CalendarioCitas(fecha, Id);
+            return Content(JToken.Parse(JsonConvert.SerializeObject(ListaCalendario,Newtonsoft.Json.Formatting.None)).ToString());
         }
 
         public IActionResult TestApi()

@@ -80,7 +80,7 @@ namespace PlataformaCitas
                     name: "default",
                     pattern: "{controller=Auth}/{action=Logon}/{id?}");
             });
-            //app.UseSession();
+
             //app.UseEndpoints(endpoints =>
             //{
             //    endpoints.MapControllerRoute(

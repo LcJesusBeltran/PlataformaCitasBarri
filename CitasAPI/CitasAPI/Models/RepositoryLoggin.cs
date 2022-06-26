@@ -13,20 +13,17 @@ namespace CitasAPI.Models
         private readonly string conString = ConfigurationManager.AppSettings["ConnStringLocal"].ToString();
         public int GetLoginUserId(string Correo, string nombre )
         {
-
             var sQuery = "EXEC dbo.InsertLogin '" + Correo + "','" + nombre +"'";
             List<int> res = new List<int>();
+            int resultado = 0;
             try
             {
                 using (var conn = new SqlConnection(conString))
                 {
-                    using (var reader = conn.QueryMultiple(sQuery))
-                    {
-                        res = reader.Read<int>().ToList();
-                    }
-                }
-                var resultado = res.ToArray();
-                return resultado[0];
+                    var response = conn.QuerySingle(sQuery);
+                    resultado = response.IdRollElemento;
+                }              
+                return resultado;
             }
             catch (Exception)
             {
