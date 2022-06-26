@@ -93,3 +93,4 @@ D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\refint\
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\PlataformaCitas.pdb
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\PlataformaCitas.genruntimeconfig.cache
 D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\ref\PlataformaCitas.dll
+D:\PlataformaCitasBarri\PlataformaCitas\PlataformaCitas\obj\Debug\net5.0\Razor\Views\Agenda\Agendas.cshtml.g.cs

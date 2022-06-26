@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Agenda";
+}
+
+@model Persona
+
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="bg-white d-flex flex-row p-2">
+    <div class="w-50">        
+        <img alt="@Model.Nombre" src="~/css/@Model.img" />
+        <p>@Model.Nombre  @Model.Paterno  @Model.Materno</p>
+        <p>Medigo General</p>            
+        <label class="fBusqueda" for="iBusqueda">Buscar Fecha</label>
+        <input data-val="true" data-val-date="El campo debe de ser fecha."
+                data-val-required="Valor Requerido."
+                id="iBusqueda" name="iBusqueda" type="date" maxlength="10"
+                class="form-control" autocomplete="false" onchange="BuscarAgenda(@Model.IdRollElemento)">        
+        <!--onchange="LimpiarCita()"<button type="button" class="btn btn-aux-plataforma-green mb-3 mt-3" onclick="BuscarFecha(@Model.IdRollElemento)">Buscar</button>-->
+    </div>
+    <div id="lCitas" class="w-50"></div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/PlataformaCitas.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        BuscarAgenda(@Model.IdRollElemento);
+    </script>
+</div>
