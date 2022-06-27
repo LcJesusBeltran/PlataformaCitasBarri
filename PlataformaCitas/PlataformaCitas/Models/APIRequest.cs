@@ -12,7 +12,7 @@ namespace PlataformaCitas.Models
 {
     public class APIRequest
     {
-        private readonly string uriApi = "https://localhost:44321/api";
+        private readonly string uriApi = "http://localhost:44321/api";
         //SACA LISTA DE DOCTORES
         public lDoctores GetDoctores()
         {
@@ -42,18 +42,23 @@ namespace PlataformaCitas.Models
             var json = JsonConvert.SerializeObject(Lista);
             var data = Encoding.UTF8.GetBytes(json);
             var resp = 0;
-
-            var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Login");
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.ContentLength = data.Length;
-            using(var stream = request.GetRequestStream())
+            try
             {
-                stream.Write(data, 0, data.Length);
+                var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Login");
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+                var response = (HttpWebResponse)request.GetResponse();
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                resp = int.Parse(responseString);
+            }catch (Exception)
+            {
+                return 0;
             }
-            var response = (HttpWebResponse)request.GetResponse();
-            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            resp = int.Parse(responseString); 
             return resp;
         }
 
@@ -65,18 +70,24 @@ namespace PlataformaCitas.Models
             var json = JsonConvert.SerializeObject(Lista);
             var data = Encoding.UTF8.GetBytes(json);
             var resp = new lCalendario();
-
-            var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Calendario");
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.ContentLength = data.Length;
-            using (var stream = request.GetRequestStream())
+            try
             {
-                stream.Write(data, 0, data.Length);
+                var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Calendario");
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+                var response = (HttpWebResponse)request.GetResponse();
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                resp = JsonConvert.DeserializeObject<lCalendario>(responseString);
             }
-            var response = (HttpWebResponse)request.GetResponse();
-            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            resp = JsonConvert.DeserializeObject<lCalendario>(responseString);
+            catch (Exception)
+            {
+                resp.bError = true;
+            }
             return resp;
         }
 
@@ -91,18 +102,23 @@ namespace PlataformaCitas.Models
             var json = JsonConvert.SerializeObject(Lista);
             var data = Encoding.UTF8.GetBytes(json);
             var resp = new lCalendario();
-
-            var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Citas");
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.ContentLength = data.Length;
-            using (var stream = request.GetRequestStream())
+            try
             {
-                stream.Write(data, 0, data.Length);
+                var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Citas");
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+                var response = (HttpWebResponse)request.GetResponse();
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                resp = JsonConvert.DeserializeObject<lCalendario>(responseString);
+            }catch (Exception)
+            {
+                resp.bError = true;
             }
-            var response = (HttpWebResponse)request.GetResponse();
-            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            resp = JsonConvert.DeserializeObject<lCalendario>(responseString);
             return resp;
         }
 
@@ -119,18 +135,24 @@ namespace PlataformaCitas.Models
             var json = JsonConvert.SerializeObject(Lista);
             var data = Encoding.UTF8.GetBytes(json);
             var resp = new lCalendario();
-
-            var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Citas");
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.ContentLength = data.Length;
-            using (var stream = request.GetRequestStream())
+            try
             {
-                stream.Write(data, 0, data.Length);
+                var request = (HttpWebRequest)WebRequest.Create(uriApi + "/Citas");
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+                var response = (HttpWebResponse)request.GetResponse();
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                resp = JsonConvert.DeserializeObject<lCalendario>(responseString);
             }
-            var response = (HttpWebResponse)request.GetResponse();
-            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            resp = JsonConvert.DeserializeObject<lCalendario>(responseString);
+            catch (Exception)
+            {
+                resp.bError = true;
+            }
             return resp;
         }
 

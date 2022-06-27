@@ -11,32 +11,8 @@
           "lib/net45/Facebook.dll": {}
         }
       },
-      "ITHit.Server/12.1.11742": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/ITHit.Server.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/ITHit.Server.dll": {}
-        }
-      },
-      "ITHit.WebDAV.Server/12.1.11742": {
-        "type": "package",
-        "dependencies": {
-          "ITHit.Server": "12.1.11742"
-        },
-        "compile": {
-          "lib/netstandard2.1/ITHit.WebDAV.Server.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/ITHit.WebDAV.Server.dll": {}
-        }
-      },
       "ITHit.WebDAV.Server.Web/12.1.11742": {
         "type": "package",
-        "dependencies": {
-          "ITHit.WebDAV.Server": "12.1.11742"
-        },
         "compile": {
           "lib/net451/ITHit.WebDAV.Server.Web.dll": {}
         },
@@ -467,44 +443,6 @@
         "lib/wp81/Facebook.xml",
         "readme.txt",
         "serializers/JsonNetSerializer.cs"
-      ]
-    },
-    "ITHit.Server/12.1.11742": {
-      "sha512": "yZ7KjfNxHJT1bUN/62a0XrPFHLGqe2Gg/H5Yq13PQvTIAmL2CetPypJ6g0Q/MSgOzVMoQahxyRF8nvlAwNvJIA==",
-      "type": "package",
-      "path": "ithit.server/12.1.11742",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "favicon.png",
-        "ithit.server.12.1.11742.nupkg.sha512",
-        "ithit.server.nuspec",
-        "lib/net451/ITHit.Server.dll",
-        "lib/net451/ITHit.Server.xml",
-        "lib/netstandard2.0/ITHit.Server.dll",
-        "lib/netstandard2.0/ITHit.Server.xml",
-        "lib/netstandard2.1/ITHit.Server.dll",
-        "lib/netstandard2.1/ITHit.Server.xml",
-        "license_agreement.md"
-      ]
-    },
-    "ITHit.WebDAV.Server/12.1.11742": {
-      "sha512": "bLwxbb5G8xVWIXEcF0zwU7LZZnQPa0BLOUjnZeY9uLGxq94ufo4m23eOQGHlTpyIK6vVIsnhd1fvIBivU3YyYg==",
-      "type": "package",
-      "path": "ithit.webdav.server/12.1.11742",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "favicon.png",
-        "ithit.webdav.server.12.1.11742.nupkg.sha512",
-        "ithit.webdav.server.nuspec",
-        "lib/net451/ITHit.WebDAV.Server.dll",
-        "lib/net451/ITHit.WebDAV.Server.xml",
-        "lib/netstandard2.0/ITHit.WebDAV.Server.dll",
-        "lib/netstandard2.0/ITHit.WebDAV.Server.xml",
-        "lib/netstandard2.1/ITHit.WebDAV.Server.dll",
-        "lib/netstandard2.1/ITHit.WebDAV.Server.xml",
-        "license_agreement.md"
       ]
     },
     "ITHit.WebDAV.Server.Web/12.1.11742": {
@@ -1221,23 +1159,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fox_2\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\jbeltran\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
+      "projectUniqueName": "D:\\PlataformaGit\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
       "projectName": "PlataformaCitas",
-      "projectPath": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
-      "packagesPath": "C:\\Users\\fox_2\\.nuget\\packages\\",
-      "outputPath": "D:\\PlataformaCitasBarri\\PlataformaCitas\\PlataformaCitas\\obj\\",
+      "projectPath": "D:\\PlataformaGit\\PlataformaCitas\\PlataformaCitas\\PlataformaCitas.csproj",
+      "packagesPath": "C:\\Users\\jbeltran\\.nuget\\packages\\",
+      "outputPath": "D:\\PlataformaGit\\PlataformaCitas\\PlataformaCitas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\fox_2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jbeltran\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1245,7 +1185,6 @@
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1303,7 +1242,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -1312,7 +1251,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Facebook 7.0.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"Facebook 7.0.6\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \"net5.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "Facebook",
       "targetGraphs": [
         "net5.0"
@@ -1322,7 +1261,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'ITHit.WebDAV.Server.Web 12.1.11742' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "message": "El paquete \"ITHit.WebDAV.Server.Web 12.1.11742\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \"net5.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "ITHit.WebDAV.Server.Web",
       "targetGraphs": [
         "net5.0"

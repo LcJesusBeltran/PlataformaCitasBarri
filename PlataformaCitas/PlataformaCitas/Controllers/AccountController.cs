@@ -55,6 +55,11 @@ namespace PlataformaCitas.Controllers
                 {
                     HttpContext.Session.SetString("LoginSession", resp.ToString());
                     HttpContext.Session.SetString("LoginName", Nombre);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("Logon", "Auth");
                 }
             }
             return RedirectToAction("Index", "Home");
