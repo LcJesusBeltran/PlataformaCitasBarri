@@ -13,7 +13,14 @@ namespace CitasAPI.Controllers
         public object Post([FromBody] string[] Busqueda)
         {
             var repo = new RepositoryCitas();
-            repo.CrearCita(Busqueda[0], Busqueda[1], Busqueda[2], Busqueda[3]);
+            if (Busqueda.Length == 4)
+            {
+                repo.CrearCita(Busqueda[0], Busqueda[1], Busqueda[2], Busqueda[3]);
+            }
+            else if(Busqueda.Length == 6)
+            {
+                repo.CrearCitaManual(Busqueda[0], Busqueda[1], Busqueda[2], Busqueda[3], Busqueda[4], Busqueda[5]);
+            }
             return repo;
         }
     }

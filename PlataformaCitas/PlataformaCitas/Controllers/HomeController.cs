@@ -43,6 +43,14 @@ namespace PlataformaCitas.Controllers
             return View(Doctor);
         }
 
+        public IActionResult CitasManual(int Id = 0)
+        {
+            ViewBag.Nombre = HttpContext.Session.GetString("LoginName");
+            var resp = JsonConvert.DeserializeObject<lDoctores>(HttpContext.Session.GetString("Doctores"));
+            var Doctor = resp.Doctores.Where(x => x.IdRollElemento == Id).FirstOrDefault();
+            return View(Doctor);
+        }
+
         [HttpPost]
         public ActionResult BuscarDisponibilidad(string fecha, int Id)
         {
@@ -59,6 +67,16 @@ namespace PlataformaCitas.Controllers
             lCalendario ListaCalendario = new lCalendario();
             var repo = new APIRequest();
             ListaCalendario = repo.CrearCita(fecha, Id, IdHoraCita, IdCliente);
+            return Content(JToken.Parse(JsonConvert.SerializeObject(ListaCalendario, Newtonsoft.Json.Formatting.None)).ToString());
+        }
+
+        [HttpPost]
+        public ActionResult CrearCitaManual(string fecha, int Id, int IdHoraCita, string Nombre, string Correo)
+        {
+            int IdCliente = int.Parse(HttpContext.Session.GetString("LoginSession"));
+            lCalendario ListaCalendario = new lCalendario();
+            var repo = new APIRequest();
+            ListaCalendario = repo.CrearCitaManual(fecha, Id, IdHoraCita, IdCliente, Nombre, Correo);
             return Content(JToken.Parse(JsonConvert.SerializeObject(ListaCalendario, Newtonsoft.Json.Formatting.None)).ToString());
         }
 

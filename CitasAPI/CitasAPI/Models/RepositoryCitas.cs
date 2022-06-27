@@ -57,5 +57,27 @@ namespace CitasAPI.Models
                 Descripcion = "No pudimos agendar tu cita, intentalo de nuevo";
             }
         }
+        public void CrearCitaManual(string Fecha, string Id, string IdHorarioCita, string IdCliente, string Nombre, string Correo)
+        {
+            ListaCalendario.Clear();
+            var sQuery = "EXEC dbo.CreaCitasManual " + Id + ",'" + Fecha + "'," + IdHorarioCita + "," + IdCliente + ",'" + Nombre + "','" + Correo + "'";
+            try
+            {
+                using (var conn = new SqlConnection(conString))
+                {
+                    using (var reader = conn.QueryMultiple(sQuery))
+                    {
+                        ListaCalendario = reader.Read<CalendarioCitas>().ToList();
+                    }
+                }
+                bError = false;
+                Descripcion = "";
+            }
+            catch (Exception)
+            {
+                bError = true;
+                Descripcion = "No pudimos agendar tu cita, intentalo de nuevo";
+            }
+        }
     }
 }
