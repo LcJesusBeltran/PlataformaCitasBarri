@@ -53,7 +53,7 @@ function BuscarFechaManual(Id) {
         data: {
             fecha: value.toString(),
             Id: Id
-        }, success: function (data) {
+        }, success: function (data) {            
             LlenarCitasManual(Id, data.ListaCalendario);
             /*console.log(data);*/
         }, error: function (xhr, status, error) {
@@ -117,11 +117,16 @@ function EnviarCitaManual(Id, IdHoraCita) {
             Correo: iCorreo
         }, success: function (data) {
 
-            LlenarCitasManual(Id, data.ListaCalendario);
+            if (data.bError === false) {
+                LlenarCitasManual(Id, data.ListaCalendario);
+                ContModal.innerHTML = "Cita Confirmada";
+            }
+            else {
+                ContModal.innerHTML = "No pudimos Confirmar tu Cita";
+            }
 
             $("#EnviaCita").empty();
             var Botones = document.getElementById("EnviaCita");
-            ContModal.innerHTML = "Cita Confirmada";
             var DivCont = "";
             DivCont = "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Cerrar</button>";
             Botones.innerHTML = DivCont;
@@ -148,14 +153,19 @@ function EnviarCita(Id, IdHoraCita) {
             IdHoraCita: IdHoraCita
         }, success: function (data) {
 
-            LlenarCitas(Id, data.ListaCalendario);
+            if (data.bError === false) {
+                LlenarCitas(Id, data.ListaCalendario);
+                ContModal.innerHTML = "Cita Confirmada";
+            }
+            else {
+                ContModal.innerHTML = "No pudimos Confirmar tu Cita";
+            }
 
             $("#EnviaCita").empty();
-            var Botones = document.getElementById("EnviaCita");                        
-            ContModal.innerHTML = "Cita Confirmada";
+            var Botones = document.getElementById("EnviaCita");
             var DivCont = "";
-            DivCont = "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Cerrar</button>";            
-            Botones.innerHTML = DivCont;            
+            DivCont = "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Cerrar</button>";
+            Botones.innerHTML = DivCont;          
             
 
             /*console.log(data);*/
