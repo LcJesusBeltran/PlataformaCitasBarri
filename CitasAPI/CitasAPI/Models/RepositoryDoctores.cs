@@ -21,6 +21,7 @@ namespace CitasAPI.Models
             Doctores.Clear();
             try
             {
+                //dao <-- buscar
                 using(var conn = new SqlConnection(conString))
                 {
                     using(var reader = conn.QueryMultiple(sQuery))

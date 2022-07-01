@@ -340,7 +340,35 @@
           "lib/net45/Facebook.dll": {}
         }
       },
+      "ITHit.Server/12.1.11742": {
+        "runtime": {
+          "lib/netstandard2.1/ITHit.Server.dll": {
+            "assemblyVersion": "12.1.11742.0",
+            "fileVersion": "12.1.11742.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/ITHit.Server.dll": {}
+        }
+      },
+      "ITHit.WebDAV.Server/12.1.11742": {
+        "dependencies": {
+          "ITHit.Server": "12.1.11742"
+        },
+        "runtime": {
+          "lib/netstandard2.1/ITHit.WebDAV.Server.dll": {
+            "assemblyVersion": "12.1.11742.0",
+            "fileVersion": "12.1.11742.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/ITHit.WebDAV.Server.dll": {}
+        }
+      },
       "ITHit.WebDAV.Server.Web/12.1.11742": {
+        "dependencies": {
+          "ITHit.WebDAV.Server": "12.1.11742"
+        },
         "runtime": {
           "lib/net451/ITHit.WebDAV.Server.Web.dll": {
             "assemblyVersion": "12.1.11742.0",
@@ -2210,6 +2238,20 @@
       "sha512": "sha512-D9nlWZb88S4U+eh1pUDQ+AkSkiht6m0eFpxKFddZnQSSFTnncvDMBEnNODy4fOIOjWQIiOXRVbuY04jCPyWqkw==",
       "path": "facebook/7.0.6",
       "hashPath": "facebook.7.0.6.nupkg.sha512"
+    },
+    "ITHit.Server/12.1.11742": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yZ7KjfNxHJT1bUN/62a0XrPFHLGqe2Gg/H5Yq13PQvTIAmL2CetPypJ6g0Q/MSgOzVMoQahxyRF8nvlAwNvJIA==",
+      "path": "ithit.server/12.1.11742",
+      "hashPath": "ithit.server.12.1.11742.nupkg.sha512"
+    },
+    "ITHit.WebDAV.Server/12.1.11742": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bLwxbb5G8xVWIXEcF0zwU7LZZnQPa0BLOUjnZeY9uLGxq94ufo4m23eOQGHlTpyIK6vVIsnhd1fvIBivU3YyYg==",
+      "path": "ithit.webdav.server/12.1.11742",
+      "hashPath": "ithit.webdav.server.12.1.11742.nupkg.sha512"
     },
     "ITHit.WebDAV.Server.Web/12.1.11742": {
       "type": "package",

@@ -31,6 +31,7 @@ CREATE PROC dbo.CreaCitasManual
 		(IdParte,IdTipoRollElemento,FechaInicial)
 		SELECT temp.IdParte,tre.IdTipoRollElemento,GETDATE() FROM dbo.Persona TEMP
 		INNER JOIN dbo.TipoRollElemento tre ON tre.Descripcion = 'Cliente'
+		WHERE TEMP.idParte = @IdParte
 
 		SET @CLIENTE = (SELECT IdRollElemento FROM RollElemento WHERE IdParte = @IdParte)
 

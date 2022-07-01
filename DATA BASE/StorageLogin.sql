@@ -1,6 +1,6 @@
 --DROP PROCEDURE dbo.InsertLogin
 
-CREATE PROC dbo.InsertLogin
+alter PROC dbo.InsertLogin
 
 	@CORREO AS NVARCHAR(150) = NULL,
 	@NOMBRE AS NVARCHAR(150) = NULL
@@ -29,6 +29,7 @@ CREATE PROC dbo.InsertLogin
 		(IdParte,IdTipoRollElemento,FechaInicial)
 		SELECT temp.IdParte,tre.IdTipoRollElemento,GETDATE() FROM dbo.Persona TEMP
 		INNER JOIN dbo.TipoRollElemento tre ON tre.Descripcion = 'Cliente'
+		where temp.IdParte = @IdParte
 
 	END
 
