@@ -19,14 +19,14 @@ namespace CitasAPI.App_Start
             var originRequested = corsRequestContext.Origin;
             if (await IsOriginFromCustomer(originRequested))
             {
-                var polocy = new CorsPolicy
+                var policy = new CorsPolicy
                 {
                     AllowAnyHeader = true,
                     AllowAnyMethod = true
                 };
 
                 polocy.Origins.Add(originRequested);
-                return polocy;
+                return policy;
             }
             return null;
 
